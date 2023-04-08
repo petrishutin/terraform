@@ -12,10 +12,20 @@ resource "google_storage_bucket" "default" {
   }
 }
 
+resource "google_storage_bucket" "my-bucket" {
+  name          = "my-bucket-${random_id.bucket_prefix.dec}"
+  force_destroy = false
+  location      = "US"
+  storage_class = "STANDARD"
+  versioning {
+    enabled = true
+  }
+}
+
 provider "google" {
-  project = "701145883873"
-  region = "europe-west3"
-  zone = "europe-west3-a"
+  project     = "701145883873"
+  region      = "europe-west3"
+  zone        = "europe-west3-a"
   credentials = var.gcp-creds
 }
 
