@@ -10,6 +10,7 @@ resource "google_storage_bucket" "default" {
   versioning {
     enabled = true
   }
+  public_access_prevention = "enforced"
 }
 
 resource "google_storage_bucket" "my-bucket" {
@@ -20,6 +21,7 @@ resource "google_storage_bucket" "my-bucket" {
   versioning {
     enabled = true
   }
+  public_access_prevention = "enforced"
 }
 
 provider "google" {
