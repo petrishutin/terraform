@@ -1,7 +1,3 @@
-resource "random_id" "bucket_prefix" {
-  byte_length = 8
-}
-
 resource "google_storage_bucket" "default" {
   name          = "petro83-bucket-tfstate"
   force_destroy = false
@@ -13,16 +9,7 @@ resource "google_storage_bucket" "default" {
   public_access_prevention = "enforced"
 }
 
-resource "google_storage_bucket" "my-bucket" {
-  name          = "my-bucket-${random_id.bucket_prefix.dec}"
-  force_destroy = false
-  location      = "US"
-  storage_class = "STANDARD"
-  versioning {
-    enabled = true
-  }
-  public_access_prevention = "enforced"
-}
+
 
 provider "google" {
   project     = "701145883873"
@@ -33,5 +20,5 @@ provider "google" {
 
 
 variable "gcp-creds" {
-  default = "august-gradient-382709-4b9ffd1c6f72.json"
+  default = "real-credentials.json"
 }
