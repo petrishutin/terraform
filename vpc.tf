@@ -1,5 +1,5 @@
 module "vpc-module" {
   source  = "./modules/vpc"
-  name    = "my-app"
-  project = "august-gradient-382709"
+  name    = var.my_vpc_name
+  project = var.my_google_project
 }
