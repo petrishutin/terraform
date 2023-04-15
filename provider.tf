@@ -1,14 +1,13 @@
-resource "google_storage_bucket" "default" {
-  name          = "petro83-bucket-tfstate"
-  force_destroy = false
-  location      = "US"
-  storage_class = "STANDARD"
-  versioning {
-    enabled = true
-  }
-  public_access_prevention = "enforced"
-}
-
+#resource "google_storage_bucket" "default" {
+#  name          = "august-gradient-382709-tfstate"
+#  force_destroy = false
+#  location      = "US"
+#  storage_class = "STANDARD"
+#  versioning {
+#    enabled = true
+#  }
+#  public_access_prevention = "enforced"
+#}
 
 
 provider "google" {

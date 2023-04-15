@@ -1,12 +1,13 @@
-variable "my_vpc_name" {
+variable "vpc_name" {
   description = "Name of VPC"
   default = ""
 }
 
-variable "my_google_project" {
+variable "google_project" {
   description = "Name of google project"
   default = ""
 }
+
 
 variable "name_for_bucket1" {
   type    = string

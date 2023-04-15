@@ -1,6 +1,6 @@
 # for VPC
-my_vpc_name       = "my-app"
-my_google_project = "august-gradient-382709"
+vpc_name       = "my-app"
+google_project = "august-gradient-382709"
 
 # for subnet
 subnet_name          = "subnet1"
@@ -10,6 +10,6 @@ range_name           = "secondary-range"
 secondary_ip_ranges  = "192.168.10.0/24"
 
 # for buckets
-name_for_bucket1     = "august-gradient-382709-bucket1"
-name_for_bucket2     = "august-gradient-382709-bucket2"
-bucket_force_destroy = true
+name_for_bucket1        = "august-gradient-382709-bucket1"
+name_for_bucket2        = "august-gradient-382709-bucket2"
+bucket_force_destroy    = true
