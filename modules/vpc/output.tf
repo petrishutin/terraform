@@ -12,3 +12,8 @@ output "self_link" {
   value       = google_compute_network.new-vpc.self_link
   description = "The URI of the created resource"
 }
+
+output "id" {
+  value       = google_compute_network.new-vpc.id
+  description = "The ID of VPC"
+}
