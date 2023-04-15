@@ -4,6 +4,7 @@ variable "name" {
 }
 
 variable "force_destroy" {
+  type    = bool
   default = false
 }
 
@@ -18,6 +19,7 @@ variable "storage_class" {
 }
 
 variable "versioning_enabled" {
+  type    = bool
   default = true
 }
 

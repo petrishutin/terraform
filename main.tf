@@ -4,12 +4,28 @@ module "vpc-module" {
   project = var.google_project
 }
 
-module "subnet" {
-  source              = "./modules/subnet"
-  name         = var.subnet_name
-  ip_cidr_range       = var.ip_subnet_cidr_range
-  region              = var.region
-  network             = module.vpc-module.id
-  secondary_range_name          = var.range_name
-  secondary_ip_ranges = var.secondary_ip_ranges
+module "private_subnet" {
+  source               = "./modules/subnets/private"
+  name                 = var.private_subnet_name
+  ip_cidr_range        = var.private_ip_subnet_cidr_range
+  region               = var.region
+  network              = module.vpc-module.id
+  secondary_range_name = var.private_range_name
+  secondary_ip_ranges  = var.private_secondary_ip_ranges
+}
+
+module "nat" {
+  source          = "./modules/subnets/nat"
+  subnetwork_name = module.private_subnet.id
+  router_name     = module.vpc-module.router_name
+}
+
+module "public_subnet" {
+  source               = "./modules/subnets/public"
+  name                 = var.public_subnet_name
+  ip_cidr_range        = var.public_ip_subnet_cidr_range
+  region               = var.region
+  network              = module.vpc-module.id
+  secondary_range_name = var.public_range_name
+  secondary_ip_ranges  = var.public_secondary_ip_ranges
 }
