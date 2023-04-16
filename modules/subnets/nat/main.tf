@@ -7,7 +7,7 @@ resource "google_compute_address" "address" {
 }
 
 resource "google_compute_router_nat" "nat_manual" {
-  name   = "my-router-nat"
+  name   = "my-router-nat"  # А почему тут my-router-nat, а не manual-route-nat?
   router = var.router_name
   region = var.region
 
