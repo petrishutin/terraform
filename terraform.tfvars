@@ -21,5 +21,5 @@ name_for_bucket2             = "august-gradient-382709-bucket2"
 bucket_force_destroy         = true
 
 # for firewall
-firewall_for_public_subnet   = "firewall-for-public-subnet"
-public_subnet_firewall_ports = ["22", "80", "443"]
+firewall   = "firewall"
+firewall_ports = ["22", "80"]

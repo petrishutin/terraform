@@ -30,9 +30,9 @@ module "public_subnet" {
   secondary_ip_ranges  = var.public_secondary_ip_ranges
 }
 
-module "public_subnet_firewall" {
+module "firewall" {
   source = "./modules/firewall/"
-  firewall_name = var.firewall_for_public_subnet
-  network = var.public_subnet_name
-  firewall_ports = var.public_subnet_firewall_ports
+  firewall_name = var.firewall
+  network = module.vpc-module.id
+  firewall_ports = var.firewall_ports
 }

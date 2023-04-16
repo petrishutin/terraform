@@ -73,13 +73,13 @@ variable "public_secondary_ip_ranges" {
   description = " "
 }
 
-variable "firewall_for_public_subnet" {
+variable "firewall" {
   type        = string
   description = " "
 }
 
 
-variable "public_subnet_firewall_ports" {
+variable "firewall_ports" {
   type        = list(string)
   description = " "
 }
