@@ -43,5 +43,5 @@ module "virtual_machine_public" {
   zone       = var.zone
   #network    = module.vpc-module.id
   subnetwork = var.public_subnet_name
-  ssh_keys   = "user:${file("~/.ssh/id_rsa.pub")}"
+  ssh_keys   = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
 }
