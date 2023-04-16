@@ -1,11 +1,13 @@
+resource "google_compute_address" "static" {
+  name = "ipv4-address"
+  region = var.region
+}
+
 resource "google_compute_instance" "vm_instance" {
   name         = var.name
   machine_type = var.machine_type
   zone         = var.zone
-  scheduling {
-    preemptible         = true
-    on_host_maintenance = var.on_host_maintenance
-  }
+
   boot_disk {
     initialize_params {
       image = var.image
@@ -14,6 +16,10 @@ resource "google_compute_instance" "vm_instance" {
 
   network_interface {
     network = var.network
+    subnetwork = var.subnetwork
+    access_config {
+      nat_ip = google_compute_address.static.address
+    }
   }
 
   metadata = {

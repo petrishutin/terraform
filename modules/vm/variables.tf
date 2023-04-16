@@ -10,16 +10,7 @@ variable "machine_type" {
 
 variable "zone" {
   type = string
-}
-
-variable "preemptible" {
-  type    = bool
-  default = false
-}
-
-variable "on_host_maintenance" {
-  type    = string
-  default = "MIGRATE"
+  default = " "
 }
 
 variable "image" {
@@ -29,9 +20,21 @@ variable "image" {
 
 variable "network" {
   type = string
+  default = ""
+}
+
+variable "subnetwork" {
+  type = string
+  default = ""
 }
 
 variable "ssh_keys" {
   type    = string
   default = ""
+}
+
+variable "region" {
+  type        = string
+  description = "(Required) The GCP region for this subnetwork."
+  default     = "us-central1"
 }

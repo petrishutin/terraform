@@ -31,16 +31,17 @@ module "public_subnet" {
 }
 
 module "firewall" {
-  source = "./modules/firewall/"
-  firewall_name = var.firewall
-  network = module.vpc-module.id
+  source         = "./modules/firewall/"
+  firewall_name  = var.firewall
+  network        = module.vpc-module.id
   firewall_ports = var.firewall_ports
 }
 
 module "virtual_machine_public" {
-  source = "./modules/vm/"
-  name = var.vm_name
-  zone = var.zone
-  network = module.public_subnet.id
-  ssh_keys = "user:${file("~/.ssh/id_rsa.pub")}"
+  source     = "./modules/vm/"
+  name       = var.vm_name
+  zone       = var.zone
+  #network    = module.vpc-module.id
+  subnetwork = var.public_subnet_name
+  ssh_keys   = "user:${file("~/.ssh/id_rsa.pub")}"
 }
