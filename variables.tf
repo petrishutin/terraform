@@ -1,13 +1,13 @@
 variable "vpc_name" {
-  type    = string
+  type        = string
   description = "Name of VPC"
-  default = ""
+  default     = ""
 }
 
 variable "google_project" {
-  type    = string
+  type        = string
   description = "Name of google project"
-  default = ""
+  default     = ""
 }
 
 
@@ -22,7 +22,7 @@ variable "name_for_bucket2" {
 }
 
 variable "bucket_force_destroy" {
-  type        = bool
+  type    = bool
   default = false
 }
 
@@ -70,5 +70,16 @@ variable "private_secondary_ip_ranges" {
 
 variable "public_secondary_ip_ranges" {
   type        = string
+  description = " "
+}
+
+variable "firewall_for_public_subnet" {
+  type        = string
+  description = " "
+}
+
+
+variable "public_subnet_firewall_ports" {
+  type        = list(string)
   description = " "
 }

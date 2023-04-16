@@ -1,4 +1,4 @@
-resource "google_compute_firewall" "firewall" {
+resource "google_compute_firewall" "public_firewall" {
   name    = var.firewall_name
   network = var.network
   allow {
