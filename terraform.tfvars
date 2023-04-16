@@ -16,10 +16,14 @@ public_range_name           = "public-secondary-range"
 public_secondary_ip_ranges  = "192.168.20.0/24"
 
 # for buckets
-name_for_bucket1             = "august-gradient-382709-bucket1"
-name_for_bucket2             = "august-gradient-382709-bucket2"
-bucket_force_destroy         = true
+name_for_bucket1     = "august-gradient-382709-bucket1"
+name_for_bucket2     = "august-gradient-382709-bucket2"
+bucket_force_destroy = true
 
 # for firewall
-firewall   = "firewall"
+firewall       = "firewall"
 firewall_ports = ["22", "80"]
+
+# for vm
+vm_name = "public-vm"
+zone = "us-central1-a"

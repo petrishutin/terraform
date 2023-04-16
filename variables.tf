@@ -73,6 +73,7 @@ variable "public_secondary_ip_ranges" {
   description = " "
 }
 
+# FOR FIREWALL
 variable "firewall" {
   type        = string
   description = " "
@@ -82,4 +83,16 @@ variable "firewall" {
 variable "firewall_ports" {
   type        = list(string)
   description = " "
+}
+
+# FOR VMs
+
+variable "vm_name" {
+  type        = string
+  description = " "
+}
+
+variable "zone" {
+  type        = string
+  description = "us-central1-a"
 }
