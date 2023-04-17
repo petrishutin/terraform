@@ -38,10 +38,19 @@ module "firewall" {
 }
 
 module "virtual_machine_public" {
-  source     = "./modules/vm/"
-  name       = var.vm_name
+  source     = "./modules/vm/external"
+  name       = var.vm_name_public
   zone       = var.zone
   #network    = module.vpc-module.id
   subnetwork = var.public_subnet_name
+  ssh_keys   = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+}
+
+module "virtual_machine_private" {
+  source     = "./modules/vm/internal"
+  name       = var.vm_name_private
+  zone       = var.zone
+  #network    = module.vpc-module.id
+  subnetwork = var.private_subnet_name
   ssh_keys   = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
 }

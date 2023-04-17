@@ -13,13 +13,24 @@ variable "google_project" {
 
 variable "name_for_bucket1" {
   type    = string
-  default = "my-bucket"
+  default = "my-bucket1"
 }
 
 variable "name_for_bucket2" {
   type    = string
   default = "my-bucket2"
 }
+
+variable "name_for_bucket3" {
+  type    = string
+  default = "my-bucket3"
+}
+
+variable "name_for_bucket4" {
+  type    = string
+  default = "my-bucket4"
+}
+
 
 variable "bucket_force_destroy" {
   type    = bool
@@ -87,12 +98,17 @@ variable "firewall_ports" {
 
 # FOR VMs
 
-variable "vm_name" {
+variable "vm_name_public" {
   type        = string
   description = " "
 }
 
 variable "zone" {
   type        = string
-  description = "us-central1-a"
+  default = "us-central1-a"
+}
+
+variable "vm_name_private" {
+  type        = string
+  description = " "
 }
