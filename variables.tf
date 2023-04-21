@@ -104,11 +104,24 @@ variable "vm_name_public" {
 }
 
 variable "zone" {
-  type        = string
+  type    = string
   default = "us-central1-a"
 }
 
 variable "vm_name_private" {
   type        = string
   description = " "
+}
+
+# FOR REGISTRY
+
+#variable "registry_location" {
+#  type        = string
+#  description = "For container registry"
+#}
+
+variable "repository_id" {
+  type        = string
+  default     = ""
+  description = "For artifact registry"
 }

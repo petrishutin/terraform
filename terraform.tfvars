@@ -2,7 +2,7 @@
 vpc_name       = "my-app"
 google_project = "august-gradient-382709"
 
-# for subnet
+# for subnet and for artifact_registry
 region = "us-central1"
 
 private_subnet_name          = "private-subnet"
@@ -26,7 +26,13 @@ bucket_force_destroy = true
 firewall       = "firewall"
 firewall_ports = ["22", "80"]
 
-# for vm
-vm_name_public = "public-vm"
+# for vmUS
+vm_name_public  = "public-vm"
 vm_name_private = "private-vm"
-zone = "us-central1-a"
+zone            = "us-central1-a"
+
+# for container_registry
+#registry_location = "US" # for container_registry, NOT for artifact_registry
+
+# for artifact_registry
+repository_id = "repo1"

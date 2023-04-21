@@ -54,3 +54,15 @@ module "virtual_machine_private" {
   subnetwork = var.private_subnet_name
   ssh_keys   = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
 }
+
+#module "registry" {
+#  source = "modules/container_registry"
+#  project_id   = var.google_project
+#  location = var.registry_location
+#}
+
+module "artifact_registry" {
+  source = "./modules/artifact_registry"
+  repository_id = var.repository_id
+  location = var.region
+}
