@@ -12,3 +12,8 @@ variable "format" {
     type = string
     default = "DOCKER"
 }
+
+variable "gcp_project_id" {
+  type = string
+  default = ""
+}

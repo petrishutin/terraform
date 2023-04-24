@@ -62,7 +62,8 @@ module "virtual_machine_private" {
 #}
 
 module "artifact_registry" {
-  source = "./modules/artifact_registry"
-  repository_id = var.repository_id
-  location = var.region
+  source         = "./modules/artifact_registry"
+  repository_id  = var.repository_id
+  location       = var.region
+  gcp_project_id = var.google_project
 }
