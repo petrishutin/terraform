@@ -122,6 +122,14 @@ variable "vm_name_private" {
 
 variable "repository_id" {
   type        = string
-  default     = ""
+  default     = " "
   description = "For artifact registry"
+}
+
+#FOR KUBERNETES
+
+variable "cluster_name" {
+  type        = string
+  default     = " "
+  description = " "
 }

@@ -37,23 +37,23 @@ module "firewall" {
   firewall_ports = var.firewall_ports
 }
 
-module "virtual_machine_public" {
-  source     = "./modules/vm/external"
-  name       = var.vm_name_public
-  zone       = var.zone
-  #network    = module.vpc-module.id
-  subnetwork = var.public_subnet_name
-  ssh_keys   = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
-}
+#module "virtual_machine_public" {
+#  source     = "./modules/vm/external"
+#  name       = var.vm_name_public
+#  zone       = var.zone
+#  #network    = module.vpc-module.id
+#  subnetwork = var.public_subnet_name
+#  ssh_keys   = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+#}
 
-module "virtual_machine_private" {
-  source     = "./modules/vm/internal"
-  name       = var.vm_name_private
-  zone       = var.zone
-  #network    = module.vpc-module.id
-  subnetwork = var.private_subnet_name
-  ssh_keys   = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
-}
+#module "virtual_machine_private" {
+#  source     = "./modules/vm/internal"
+#  name       = var.vm_name_private
+#  zone       = var.zone
+#  #network    = module.vpc-module.id
+#  subnetwork = var.private_subnet_name
+#  ssh_keys   = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+#}
 
 #module "registry" {
 #  source = "modules/container_registry"
@@ -66,4 +66,11 @@ module "artifact_registry" {
   repository_id  = var.repository_id
   location       = var.region
   gcp_project_id = var.google_project
+}
+
+module "k8s" {
+  source         = "./modules/k8s"
+  name           = var.cluster_name
+  network        = module.vpc-module.self_link
+  subnetwork     = module.private_subnet.self_link
 }
