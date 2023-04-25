@@ -9,14 +9,12 @@
 #  public_access_prevention = "enforced"
 #}
 
-
 provider "google" {
   project     = "701145883873"
   region      = "europe-west3"
   zone        = "europe-west3-a"
   credentials = var.gcp-creds
 }
-
 
 variable "gcp-creds" {
   default = "real-credentials.json"
