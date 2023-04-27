@@ -63,18 +63,7 @@ variable "region" {
   description = "(Required) The GCP region for this subnetwork."
 }
 
-
-variable "private_range_name" {
-  type        = string
-  description = " "
-}
-
 variable "public_range_name" {
-  type        = string
-  description = " "
-}
-
-variable "private_secondary_ip_ranges" {
   type        = string
   description = " "
 }
@@ -82,6 +71,26 @@ variable "private_secondary_ip_ranges" {
 variable "public_secondary_ip_ranges" {
   type        = string
   description = " "
+}
+
+variable "k8s_pod_range_name" {
+  type        = string
+  description = ""
+}
+
+variable "k8s_pod_range" {
+  type        = string
+  description = ""
+}
+
+variable "k8s_service_range_name" {
+  type        = string
+  description = ""
+}
+
+variable "k8s_service_range" {
+  type        = string
+  description = ""
 }
 
 # FOR FIREWALL

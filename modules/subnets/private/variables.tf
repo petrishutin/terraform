@@ -24,7 +24,22 @@ variable "secondary_ip_ranges" {
   default     = []
 }
 
-variable "secondary_range_name" {
+variable "k8s_pod_range_name" {
+  type        = string
+  description = ""
+}
+
+variable "k8s_pod_range" {
+  type        = string
+  description = ""
+}
+
+variable "k8s_service_range_name" {
+  type        = string
+  description = ""
+}
+
+variable "k8s_service_range" {
   type        = string
   description = ""
 }

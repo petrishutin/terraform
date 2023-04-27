@@ -5,13 +5,15 @@ module "vpc-module" {
 }
 
 module "private_subnet" {
-  source               = "./modules/subnets/private"
-  name                 = var.private_subnet_name
-  ip_cidr_range        = var.private_ip_subnet_cidr_range
-  region               = var.region
-  network              = module.vpc-module.id
-  secondary_range_name = var.private_range_name
-  secondary_ip_ranges  = var.private_secondary_ip_ranges
+  source                 = "./modules/subnets/private"
+  name                   = var.private_subnet_name
+  ip_cidr_range          = var.private_ip_subnet_cidr_range
+  region                 = var.region
+  network                = module.vpc-module.id
+  k8s_pod_range_name     = var.k8s_pod_range_name
+  k8s_pod_range          = var.k8s_pod_range
+  k8s_service_range_name = var.k8s_service_range_name
+  k8s_service_range      = var.k8s_service_range
 }
 
 module "nat" {
@@ -28,6 +30,7 @@ module "public_subnet" {
   network              = module.vpc-module.id
   secondary_range_name = var.public_range_name
   secondary_ip_ranges  = var.public_secondary_ip_ranges
+
 }
 
 module "firewall" {
@@ -69,8 +72,8 @@ module "artifact_registry" {
 }
 
 module "k8s" {
-  source         = "./modules/k8s"
-  name           = var.cluster_name
-  network        = module.vpc-module.self_link
-  subnetwork     = module.private_subnet.self_link
+  source     = "./modules/k8s"
+  name       = var.cluster_name
+  network    = module.vpc-module.self_link
+  subnetwork = module.private_subnet.self_link
 }

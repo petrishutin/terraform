@@ -7,8 +7,10 @@ region = "us-central1"
 
 private_subnet_name          = "private-subnet"
 private_ip_subnet_cidr_range = "10.0.0.0/18"
-private_range_name           = "private-secondary-range"
-private_secondary_ip_ranges  = "192.168.40.0/24"
+k8s_pod_range_name          = "k8s-pod-range"
+k8s_pod_range               = "10.48.0.0/14"
+k8s_service_range_name      = "k8s-service-range"
+k8s_service_range           = "10.52.0.0/20"
 
 public_subnet_name          = "public-subnet"
 public_ip_subnet_cidr_range = "10.1.0.0/16"
