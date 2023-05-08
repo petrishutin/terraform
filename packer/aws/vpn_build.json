@@ -1,0 +1,39 @@
+{
+  "variables": {
+  "USER": ""
+},
+
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "us-east-1",
+      "force_deregister": true,
+      "source_ami": "ami-007855ac798b5175e",
+      "instance_type": "t3.small",
+      "associate_public_ip_address": true,
+      "vpc_id": "vpc-0c100e9315d8c1073",
+      "subnet_id": "subnet-09c2342186bdf75ac",
+      "security_group_id": "sg-080d00730e5b65d43",
+      "ssh_username": "ubuntu",
+      "temporary_key_pair_type": "ed25519",
+      "ami_name": "packer.m1_{{user `USER`}}",
+      "tags": {
+        "Name": "packer.m1_{{user `USER`}}",
+        "source": "packer"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "../ssh/{{user `USER`}}.pub",
+      "destination": "/tmp/{{user `USER`}}.pub"
+    },
+    {
+      "type": "shell",
+      "environment_vars": ["NEWUSER={{user `USER`}}"],
+      "script": "provisioners/vpn_provisioner.sh"
+    }
+
+  ]
+}

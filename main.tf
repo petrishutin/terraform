@@ -1,11 +1,11 @@
 module "vpc-module" {
-  source  = "./modules/vpc"
+  source  = "./modules/google/vpc"
   name    = var.vpc_name
   project = var.google_project
 }
 
 module "private_subnet" {
-  source                 = "./modules/subnets/private"
+  source                 = "./modules/google/subnets/private"
   name                   = var.private_subnet_name
   ip_cidr_range          = var.private_ip_subnet_cidr_range
   region                 = var.region
@@ -17,13 +17,13 @@ module "private_subnet" {
 }
 
 module "nat" {
-  source          = "./modules/subnets/nat"
+  source          = "./modules/google/subnets/nat"
   subnetwork_name = module.private_subnet.id
   router_name     = module.vpc-module.router_name
 }
 
 module "public_subnet" {
-  source               = "./modules/subnets/public"
+  source               = "./modules/google/subnets/public"
   name                 = var.public_subnet_name
   ip_cidr_range        = var.public_ip_subnet_cidr_range
   region               = var.region
@@ -34,7 +34,7 @@ module "public_subnet" {
 }
 
 module "firewall" {
-  source         = "./modules/firewall/"
+  source         = "./modules/google/firewall/"
   firewall_name  = var.firewall
   network        = module.vpc-module.id
   firewall_ports = var.firewall_ports
@@ -65,14 +65,14 @@ module "firewall" {
 #}
 
 module "artifact_registry" {
-  source         = "./modules/artifact_registry"
+  source         = "./modules/google/artifact_registry"
   repository_id  = var.repository_id
   location       = var.region
   gcp_project_id = var.google_project
 }
 
 module "k8s" {
-  source     = "./modules/k8s"
+  source     = "./modules/google/k8s"
   name       = var.cluster_name
   network    = module.vpc-module.self_link
   subnetwork = module.private_subnet.self_link
