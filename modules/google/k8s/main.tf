@@ -29,7 +29,7 @@ resource "google_container_cluster" "primary" {
   }
 
   workload_identity_config {
-    workload_pool = "august-gradient-382709.svc.id.goog"
+    workload_pool = "flawless-acre-387710.svc.id.goog"
   }
 
   ip_allocation_policy {

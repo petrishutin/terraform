@@ -1,6 +1,7 @@
 #For VPC
 vpc_name       = "my-app"
-google_project = "august-gradient-382709"
+google_project = "flawless-acre-387710"
+project_number = "406365148648"
 
 #For subnet and for artifact_registry
 region = "us-central1"
@@ -18,10 +19,10 @@ public_range_name           = "public-secondary-range"
 public_secondary_ip_ranges  = "192.168.20.0/24"
 
 #For buckets
-name_for_bucket1     = "august-gradient-382709-bucket1"
-name_for_bucket2     = "august-gradient-382709-bucket2"
-name_for_bucket3     = "august-gradient-382709-bucket3"
-name_for_bucket4     = "august-gradient-382709-bucket4"
+name_for_bucket1     = "flawless-acre-387710-bucket1"
+name_for_bucket2     = "flawless-acre-387710-bucket2"
+name_for_bucket3     = "flawless-acre-387710-bucket3"
+name_for_bucket4     = "flawless-acre-387710-bucket4"
 bucket_force_destroy = true
 
 #For firewall
@@ -35,6 +36,7 @@ zone            = "us-central1-a"
 
 #For container_registry
 #registry_location = "US" # for container_registry, NOT for artifact_registry
+service_account_email = "main-139@flawless-acre-387710.iam.gserviceaccount.com"
 
 #For artifact_registry
 repository_id = "repo1"

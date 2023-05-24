@@ -1,5 +1,6 @@
 .idea
 .terraform
 .terraform.lock.hcl
+real-credentials-old.json
+/real-credentials-old.json
 real-credentials.json
-/real-credentials.json

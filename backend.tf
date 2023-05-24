@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket      = "august-gradient-382709-tfstate"
+    bucket      = "flawless-acre-tf-state"
     prefix      = "terraform/state"
     credentials = "real-credentials.json"
   }

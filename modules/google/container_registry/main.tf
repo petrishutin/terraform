@@ -6,11 +6,11 @@ resource "google_container_registry" "registry" {
 resource "google_storage_bucket_iam_member" "viewer" {
   bucket = google_container_registry.registry.id
   role   = "roles/storage.objectViewer"
-  member = "serviceAccount:701145883873-compute@developer.gserviceaccount.com"
+  member = var.service_account_email
 }
 
 #resource "google_container_registry" "container_registry" {
-#  project  = "august-gradient-382709"
+#  project  = "flawless-acre-387710"
 #  location = "US"
 #}
 #

@@ -4,6 +4,12 @@ variable "vpc_name" {
   default     = ""
 }
 
+variable "project_number" {
+  type        = string
+  description = "Project number. Get it in GCP console"
+  default     = ""
+}
+
 variable "google_project" {
   type        = string
   description = "Name of google project"
@@ -128,6 +134,14 @@ variable "vm_name_private" {
 #  type        = string
 #  description = "For container registry"
 #}
+
+variable "service_account_email" {
+  type        = string
+  default     = ""
+  description = "For container registry"
+}
+
+# FOR ARTIFACT REGISTRY
 
 variable "repository_id" {
   type        = string

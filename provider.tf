@@ -1,5 +1,5 @@
 #resource "google_storage_bucket" "default" {
-#  name          = "august-gradient-382709-tfstate"
+#  name          = "flawless-acre-387710-tf-state"
 #  force_destroy = false
 #  location      = "US"
 #  storage_class = "STANDARD"
@@ -10,7 +10,7 @@
 #}
 
 provider "google" {
-  project     = "701145883873"
+  project     = var.project_number
   region      = "europe-west3"
   zone        = "europe-west3-a"
   credentials = var.gcp-creds
