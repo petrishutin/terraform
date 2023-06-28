@@ -5,7 +5,7 @@ variable "name" {
 
 variable "region" {
   type    = string
-  default = "us-central1-a"
+  default = "us-central1-c"
 }
 
 variable "network" {
@@ -20,7 +20,7 @@ variable "subnetwork" {
 
 variable "location1" {
   type    = string
-  default = "us-central1-a"
+  default = "us-central1-c"
 }
 
 variable "location2" {

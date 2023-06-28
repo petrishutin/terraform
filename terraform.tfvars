@@ -32,7 +32,7 @@ firewall_ports = ["22", "80"]
 #For vmUS
 vm_name_public  = "public-vm"
 vm_name_private = "private-vm"
-zone            = "us-central1-a"
+zone            = "us-central1-c"
 
 #For container_registry
 #registry_location = "US" # for container_registry, NOT for artifact_registry

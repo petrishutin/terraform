@@ -120,7 +120,7 @@ variable "vm_name_public" {
 
 variable "zone" {
   type    = string
-  default = "us-central1-a"
+  default = "us-central1-c"
 }
 
 variable "vm_name_private" {
