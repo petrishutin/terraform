@@ -27,7 +27,7 @@ bucket_force_destroy = true
 
 #For firewall
 firewall       = "firewall"
-firewall_ports = ["22", "80"]
+firewall_ports = ["22", "80", "1194"]
 
 #For vmUS
 vm_name_public  = "public-vm"
